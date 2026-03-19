@@ -1,0 +1,20 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+testScript/dist/
+build/
+coverage/
+
+# Temporary
+.DS_Store
+*.log
+.env
+
+# Editor directories
+.vscode/
+.idea/
+
+# Husky state
+.husky/_
