@@ -10,7 +10,14 @@ const compat = new FlatCompat({
 
 module.exports = [
   {
-    ignores: ['node_modules/**', 'dist/**', 'build/**', 'coverage/**', 'eslint.config.cjs'],
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      '**/dist/**',
+      'build/**',
+      'coverage/**',
+      'eslint.config.cjs',
+    ],
   },
   ...compat.env({
     browser: true,

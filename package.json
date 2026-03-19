@@ -5,9 +5,16 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:files": "eslint --ext .ts,.tsx,.js,.jsx",
     "typecheck": "tsc --noEmit",
-    "prettier:check": "prettier --check .",
-    "prepare": "husky install"
+    "prettier:check": "prettier --check . --ignore-unknown",
+    "prettier:files": "prettier --ignore-unknown",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "deploy": "npm run build && npx gh-pages -d dist",
+    "lint-staged": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -20,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/DemiusHTTV/hh-school-infrastructure/issues"
   },
-  "homepage": "https://github.com/DemiusHTTV/hh-school-infrastructure#readme",
+  "homepage": "https://demiushttv.github.io/hh-school-infrastructure/",
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
@@ -29,18 +36,20 @@
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.2",
     "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "npm run lint:files -- --fix",
+      "npm run prettier:files -- --write"
     ],
     "*.{json,md,css,scss,html}": [
-      "prettier --write"
+      "npm run prettier:files -- --write"
     ]
   }
 }
